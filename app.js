@@ -12,11 +12,12 @@ app.use(bodyParser.json());
 var parentRouter = require('./routes/parent');
 var minderRouter = require('./routes/minder');
 var categoryRouter = require('./routes/category');
-var availabilityRouter = require('./routes/availability');
+var availabilityMinderRouter = require('./routes/availability_minder');
+var availabilityParentRouter = require('./routes/availability_parent');
 
 //specify address and port the app will run
 const hostname = '0.0.0.0';
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8005;
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -31,7 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/parent', parentRouter);
 app.use('/minder', minderRouter);
 app.use('/category', categoryRouter);
-app.use('/availability', availabilityRouter);
+app.use('/availabilityMinder', availabilityMinderRouter);
+app.use('/availabilityParent', availabilityParentRouter);
 
 app.get("/", (req, res) => {
   res.json({

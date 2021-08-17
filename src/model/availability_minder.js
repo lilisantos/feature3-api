@@ -1,13 +1,13 @@
 const { ObjectID } = require('mongodb');
 
 const db = require('../../db')();
-const COLLECTION = "availability";
+const COLLECTION = "availability_minder";
 
 module.exports = () => { 
     
     //Get availability
     const get = async (id = null) => {
-        console.log(' inside availability model');
+        console.log(' inside availability_minder model');
         if(!id){
           try{
             const availability = await db.get(COLLECTION);
@@ -24,7 +24,7 @@ module.exports = () => {
           return {error: ex}
         }
              
-    }
+    };
 
     //Gets availability
     // const getAva = async () => {
@@ -43,21 +43,16 @@ module.exports = () => {
     // }
 
     //Add new availability
-    const add = async(idPerson, slotId, slotPersonalId, slotDate) => {
-      console.log(' inside availability model add');    
+    const add = async(personId, category, availability) => {
+      console.log(' inside availability_minder model add');    
      
       try{
         const results = await db.add(COLLECTION, {
-            type: "workout",
-            member:  memberId,
-            personal: ObjectID(slotPersonalId),
-            date: slotDate,
-            fee: "due",
-            status: "booked"
+          personId: personId, 
+          category: category, 
+          availability: availability
          });
-
-         //Updates status of the selected slot, so it will not be displayed on the calendar
-         const {slotUpdated, error} = await slots.update(slotId, new_status);
+         
          return results.result;
       }catch(ex){
           return {error: ex}
@@ -68,6 +63,6 @@ module.exports = () => {
 
     return {
         get,
-        add,
+        add
     }
 };
