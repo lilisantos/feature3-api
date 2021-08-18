@@ -16,7 +16,7 @@ var availabilityParentRouter = require('./routes/availability_parent');
 
 //specify address and port the app will run
 const hostname = '0.0.0.0';
-const port = process.env.PORT || 8005;
+const port = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
