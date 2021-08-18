@@ -11,6 +11,6 @@ router.get("/", function(req, res, next){
 router.get('/get', minderController.getController);
 //Add a new minder
 router.post('/add', minderController.postController);
-
+//Get minder by id
 router.get('/get/:id', minderController.getById);
 module.exports = router;

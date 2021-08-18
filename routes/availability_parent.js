@@ -11,6 +11,6 @@ router.get("/", function(req, res, next){
 router.get('/get', availabilityParentController.getController);
 //Add a new availability
 router.post('/add', availabilityParentController.postController);
-
+//Get availability by id
 router.get('/get/:id', availabilityParentController.getById);
 module.exports = router;

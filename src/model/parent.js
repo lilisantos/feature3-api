@@ -22,8 +22,7 @@ module.exports = () => {
   //Add parent
   const add = async (name, details) => {
     
-    try {
-     
+    try {    
       const results = await db.add(COLLECTION, {
         name,
         details

@@ -12,5 +12,6 @@ router.get('/get', parentController.getController);
 //Add a new parent
 router.post('/add', parentController.postController);
 
+//Get parent by id
 router.get('/get/:id', parentController.getById);
 module.exports = router;

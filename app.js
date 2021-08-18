@@ -11,17 +11,12 @@ app.use(bodyParser.json());
 // Setup Controller Routes
 var parentRouter = require('./routes/parent');
 var minderRouter = require('./routes/minder');
-var categoryRouter = require('./routes/category');
 var availabilityMinderRouter = require('./routes/availability_minder');
 var availabilityParentRouter = require('./routes/availability_parent');
 
 //specify address and port the app will run
 const hostname = '0.0.0.0';
 const port = process.env.PORT || 8005;
-
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
 
 app.use(express.json());
 app.use(cors());
@@ -31,7 +26,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Setup app routes
 app.use('/parent', parentRouter);
 app.use('/minder', minderRouter);
-app.use('/category', categoryRouter);
 app.use('/availabilityMinder', availabilityMinderRouter);
 app.use('/availabilityParent', availabilityParentRouter);
 
@@ -49,7 +43,7 @@ app.use((req, res) => {
   });
 });
 
-// error handler
+// Error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -67,10 +61,6 @@ app.use(function(err, req, res, next) {
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);    
 });
-
-// app.listen(3000, () => {
-//   console.log(`Server running...`);    
-// });
 
 module.exports = app;
 
