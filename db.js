@@ -1,5 +1,4 @@
-//////CHANGE TO THIS -----> const uri = process.env.MONGO_URI;
-const uri = "mongodb+srv://lili:admin@cluster0.g3qlb.mongodb.net/myFirstDatabase?retryWrites=true";
+const uri = process.env.MONGO_URI;
 const MongoClient = require("mongodb").MongoClient;
 const ObjectID = require("mongodb").ObjectID;
 const DB_NAME = "feature3";
